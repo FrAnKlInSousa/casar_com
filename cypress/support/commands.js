@@ -30,3 +30,8 @@ Cypress.Commands.add('visitSite', (titulo) => {
         .invoke('removeAttr', 'target')
         .click()
 })
+
+Cypress.Commands.add('visitHome', ()=>{
+    cy.visit('/')
+    cy.url().should('contain', 'casar.com')
+})
