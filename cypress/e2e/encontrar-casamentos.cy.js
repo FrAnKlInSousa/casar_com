@@ -1,7 +1,6 @@
 describe('Buscar de casamentos', () => {
     it('Informando nome de casal e data', () =>{
-        cy.visit('/')
-        cy.url().should('contain', 'casar.com')
+        cy.visitHome()
 
         cy.contains('Encontre um casamento').click()
         cy.url().should('contain', 'encontre-um-casamento')
@@ -17,8 +16,8 @@ describe('Buscar de casamentos', () => {
     })
 
     it('Informando apenas nome de casal e acessar o site', ()=>{
-        cy.visit('/')
-        cy.url().should('contain', 'casar.com')
+        cy.visitHome()
+
         cy.contains('Encontre um casamento').click()
         cy.url().should('contain', 'encontre-um-casamento')
 
