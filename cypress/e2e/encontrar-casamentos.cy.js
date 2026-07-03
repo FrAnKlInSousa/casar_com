@@ -9,7 +9,7 @@ describe('Buscar de casamentos', () => {
     })
 
 
-    it('Informando apenas nome de casal e acessar o site', ()=>{
+    it('Informando apenas nome do casal e acessando o site do casal', ()=>{
         cy.visitHome()
 
         cy.contains('Encontre um casamento').click()
@@ -22,4 +22,12 @@ describe('Buscar de casamentos', () => {
 
     })
 
+    it('Sem informar nome do casal', ()=>{
+        cy.visitHome()
+
+        cy.contains('Encontre um casamento').click()
+        cy.url().should('contain', 'encontre-um-casamento')
+        cy.contains('Buscar').click()
+        cy.contains('O nome do casal não pode ficar em branco.').should('exist')
+    })
 })
