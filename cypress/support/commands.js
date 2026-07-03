@@ -35,3 +35,14 @@ Cypress.Commands.add('visitHome', ()=>{
     cy.visit('/')
     cy.url().should('contain', 'casar.com')
 })
+
+Cypress.Commands.add('searchWedding', (couple_name, wedding_date)=>{
+    cy.get('[name="coupleName"]').type(couple_name)
+    if(wedding_date){
+        cy.get('.react-datepicker__input-container > .text-neutral')
+            .click().type(wedding_date)
+    }
+    cy.contains('Buscar').click()
+    cy.get('.mb-4')
+        .should('contain', `resultados para: ${couple_name}`)
+})
