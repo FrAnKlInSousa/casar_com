@@ -1,0 +1,60 @@
+name: cypress-ci.yml
+on: [ push, pull_request ]
+
+permissions:
+  contents: read
+
+jobs:
+  docker-base:
+    runs-on: ubuntu-24.04
+    container:
+      image: cypress/base:latest
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - uses: cypress-io/github-action@v7
+        with:
+          working-directory: .
+
+  docker-browsers:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, edge, firefox]
+    container:
+      image: cypress/browsers:latest
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - uses: cypress-io/github-action@v7
+        with:
+          working-directory: .
+          browser: ${{ matrix.browser }}
+
+  docker-included:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, edge, firefox]
+    container:
+      image: cypress/included:latest
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - uses: cypress-io/github-action@v7
+        with:
+          working-directory: .
+          browser: ${{ matrix.browser }}
+        env:
+          CYPRESS_INSTALL_BINARY: 0
