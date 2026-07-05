@@ -29,5 +29,12 @@ jobs:
         with:
           working-directory: .
           browser: ${{ matrix.browser }}
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-screenshots-${{ matrix.browser }}
+          path: |
+            cypress/screenshots
+            cypress/videos
         env:
           CYPRESS_INSTALL_BINARY: 0
