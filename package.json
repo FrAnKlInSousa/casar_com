@@ -3,6 +3,6 @@
     "cypress": "^15.18.0"
   },
   "scripts": {
-    "berry-run": "cypress open"
+    "barry-run": "cypress open"
   }
 }
