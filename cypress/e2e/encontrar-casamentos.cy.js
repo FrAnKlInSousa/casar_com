@@ -17,7 +17,7 @@ describe('Buscar de casamentos', () => {
 
         cy.searchWedding('teste')
 
-        cy.visitSite('tes tes teste e teste teste')
+        cy.visitSite('Teste A e Teste B')
         cy.url().should('contain', 'noivos.casar.com')
 
     })
