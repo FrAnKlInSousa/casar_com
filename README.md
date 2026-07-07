@@ -41,5 +41,8 @@
 ### Rodando os testes no CI
 
 Para rodar os teste no ci, basta realizar o primeiro push na main (ou rodar manualmente na aba actions) e nas demais vezes poderá executar direto pela aba actions do github.
+> Os testes do ci rodam nos 3 navegadores principais (chrome, firefox e edge)
 
-Planilha os exemplos de casos de teste usados na automação: [Planilha](https://docs.google.com/spreadsheets/d/1IDXNBglR6EJFeYOpR9vXgQtpf4JK8Ufm4VBteJl8_iw/edit?gid=0#gid=0)
+## Arquivo com os casos de testes
+
+- Planilha com os exemplos de casos de teste usados na automação: [Planilha](https://docs.google.com/spreadsheets/d/1IDXNBglR6EJFeYOpR9vXgQtpf4JK8Ufm4VBteJl8_iw/edit?gid=0#gid=0)
